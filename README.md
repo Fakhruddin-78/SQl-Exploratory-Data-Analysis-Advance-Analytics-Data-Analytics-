@@ -1,5 +1,4 @@
 Advanced SQL Analytics & Exploratory Data Analysis (EDA)
-Welcome to the Advanced SQL Analytics & Exploratory Data Analysis repository! 🚀
 
 This project demonstrates how to perform end-to-end data exploration, customer segmentation, cohort retention, and query performance optimization directly on a Gold Layer Star Schema in a SQL environment. Designed as a portfolio project, it highlights advanced analytics methodologies without relying on external scripting languages.
 
