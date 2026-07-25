@@ -1,124 +1,105 @@
-Advanced SQL Analytics & Exploratory Data Analysis (EDA)
+# SQL Exploratory Data Analysis & Advanced Analytics Project
 
-This project demonstrates how to perform end-to-end data exploration, customer segmentation, cohort retention, and query performance optimization directly on a Gold Layer Star Schema in a SQL environment. Designed as a portfolio project, it highlights advanced analytics methodologies without relying on external scripting languages.
+Welcome to the **SQL Exploratory Data Analysis & Advanced Analytics** repository! 🚀  
+This project demonstrates an end-to-end analytics solution leveraging advanced SQL techniques on a curated **Gold Layer** database. Designed as a portfolio project, it showcases industry best practices in data profiling, cohort analysis, customer segmentation, and query performance tuning.
 
-🏗️ Analytics Context & Data Layer
-This repository focuses on querying and analyzing business-ready data housed in the Gold Layer of a Medallion Architecture:
+---
+## 🏗️ Data Architecture & Gold Layer Focus
 
-Bronze & Silver Layers (Upstream): Raw ingestion and data cleansing/transformation.
+The data architecture for this project operates on the Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
+![Data Architecture](docs/data_architecture.png)
 
-Gold Layer (This Repository): Star Schema consisting of fully modeled fact tables (fact_sales) and dimension tables (dim_customers, dim_products). Optimized for analytical reporting, complex windowing, and business intelligence.
+1. **Bronze Layer**: Stores raw source data ingested from enterprise systems into the SQL Server Database.
+2. **Silver Layer**: Cleanses, standardizes, and normalizes transactional records to ensure high data quality.
+3. **Gold Layer** *(Focus of this Project)*: Houses business-ready star schema models (`fact_sales`, `dim_customers`, `dim_products`) optimized specifically for exploratory data analysis (EDA) and advanced analytical queries.
 
-📖 Project Overview
-This project delivers:
+---
+## 📖 Project Overview
 
-Exploratory Data Analysis (EDA): Comprehensive SQL scripts for data profiling, null auditing, value distribution binning, and outlier detection.
+This project involves:
 
-Cohort & Retention Analysis: Tracking customer lifecycle behavior over time using CTEs, DATE_TRUNC, and window functions.
+1. **Exploratory Data Analysis (EDA)**: Profiling distributions, missing value audits, anomaly detection, and percentile metric calculations directly within SQL Server.
+2. **Customer Cohort & Retention Analysis**: Building multi-stage CTEs and window functions to measure monthly cohort retention and lifecycle behavior.
+3. **RFM Segmentation**: Scoring customer Recency, Frequency, and Monetary value using `NTILE()` functions to identify key customer tiers.
+4. **Performance Optimization**: Analyzing query execution plans, refactoring expensive joins, and designing targeted indexing strategies.
 
-RFM Segmentation: Grouping users by Recency, Frequency, and Monetary value using NTILE() functions to identify VIPs and churn risks.
+🎯 This repository is an excellent resource for professionals and students looking to showcase expertise in:
+- SQL Analytics & Query Optimization
+- Advanced Window Functions & CTEs
+- Exploratory Data Analysis (EDA)
+- Customer Analytics & Cohort Modeling
+- Business Intelligence Reporting
+- VS Code & Database Management
 
-Performance Optimization: Leveraging execution plan analysis, indexing strategies, CTE restructuring, and windowing optimizations.
+---
 
-🎯 This repository is a resource for professionals and hiring managers looking to evaluate expertise in:
+## 🛠️ Important Links & Tools:
 
-Advanced SQL Analytics
+Everything is for Free!
+- **[Datasets](datasets/):** Access to the Gold Layer project dataset (CSV & SQL DDL files).
+- **[SQL Server Express](https://www.microsoft.com/en-us/sql-server/sql-server-downloads):** Lightweight database engine for executing analytics scripts locally.
+- **[Visual Studio Code](https://code.visualstudio.com/):** Lightweight IDE configured with SQL extensions for running and testing scripts.
+- **[mssql Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql):** Official extension to connect and query databases inside VS Code.
+- **[SQL Server Management Studio (SSMS)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms):** GUI alternative for managing database instances and viewing execution plans.
+- **[Git Repository](https://github.com/):** Manage, version, and share your analytical SQL codebase.
+- **[DrawIO](https://www.drawio.com/):** Design ERD models, star schemas, and analytical data flows.
 
-Exploratory Data Analysis (EDA)
+---
 
-Window Functions & CTEs
+## 🚀 Project Requirements
 
-Customer Analytics (RFM, Retention)
+### Building Advanced Analytics Queries (Data Analysis)
 
-Query Performance Optimization
+#### Objective
+Develop high-performance SQL scripts operating on Gold Layer star schema models to uncover actionable business insights regarding customer behavior and revenue trends.
 
-Data Modeling & Star Schema Utilization
+#### Specifications
+- **Data Source**: Query business-ready dimensional models stored in SQL Server.
+- **EDA & Profiling**: Conduct full statistical distributions, null audits, and outlier flags using percentile functions (`PERCENTILE_CONT`).
+- **Advanced Segmentation**: Build RFM scores and cohort retention metrics using CTEs and windowing capabilities.
+- **Optimization**: Analyze and refactor complex queries for maximum execution efficiency.
+- **Documentation**: Provide clean, modular scripts with detailed inline comments explaining the analytical logic.
 
-🛠️ Important Links & Tools
-Everything is open-source and ready to run:
+---
 
-SQL Scripts: Access all modular EDA and analytical queries.
+### BI: Analytics & Reporting (Data Insights)
 
-SQL Server Management Studio (SSMS): Integrated environment used for database management and query execution.
+#### Objective
+Deliver comprehensive SQL-driven reports providing deep visibility into:
+- **Customer Lifetime Value & Retention Curves**
+- **Product Performance & Basket Analysis**
+- **Sales Trends & Month-over-Month (MoM) Growth**
 
-DrawIO: Entity-Relationship Diagrams (ERD) and Star Schema visualization.
+These insights empower key stakeholders with metrics required for data-driven decision-making.  
+## 🛡️ License
 
-Notion Project Breakdown: Phase-by-phase query design, logic documentation, and performance benchmarks.
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
 
-🚀 Project Requirements & Analytical Scope
-1. Exploratory Data Analysis (EDA)
-Audit data completeness, zero/null records, and duplicate integrity across fact and dimension tables.
+## 🌟 About Me
 
-Compute summary statistics (mean, median, interquartile range using PERCENTILE_CONT).
+# Hi there, I'm Fakhruddin Hatod 👋
 
-Create histogram bins using mathematical division (FLOOR) to understand transaction spread.
-
-2. Advanced Analytics & Segmentation
-Cohort Retention: Build multi-stage CTEs to track customer retention curves from initial purchase month.
-
-RFM Analysis: Apply NTILE(4) ranking across customer recency, purchase frequency, and lifetime spend.
-
-Sales Trend Analysis: Calculate rolling averages, moving sums, and month-over-month (MoM) growth rates using LAG() and LEAD().
-
-3. Query Performance Tuning
-Rewrite correlated subqueries into JOINs and CTEs.
-
-Identify bottleneck operations via SQL execution plans and implement appropriate non-clustered indexes.
-
-📂 Repository Structure
-sql-eda-advanced-analytics/
-│
-├── docs/                               # Architecture and analytics documentation
-│   ├── star_schema_erd.drawio          # Gold layer dimension and fact relationship diagram
-│   ├── data_catalog.md                 # Gold layer column descriptions and data types
-│   └── query_optimization_guide.md     # Benchmarks and index execution plan breakdowns
-│
-├── scripts/                            # SQL analytics scripts categorized by objective
-│   ├── eda/                            # Data profiling, null checks, and histogram binning
-│   │   ├── 01_data_profiling.sql
-│   │   ├── 02_null_and_duplicate_audit.sql
-│   │   └── 03_distribution_and_outliers.sql
-│   │
-│   ├── advanced_analytics/             # Complex analysis and metrics calculations
-│   │   ├── 01_cohort_retention_analysis.sql
-│   │   ├── 02_rfm_customer_segmentation.sql
-│   │   └── 03_rolling_metrics_and_mom.sql
-│   │
-│   └── optimization/                   # Query tuning and index scripts
-│       ├── 01_index_creation.sql
-│       └── 02_execution_plan_refactoring.sql
-│
-├── tests/                              # Validation scripts for analytical output accuracy
-│
-├── README.md                           # Project overview and setup instructions
-├── LICENSE                             # MIT License
-└── .gitignore                          # Standard git ignore configuration
-🛡️ License
-This project is licensed under the MIT License. You are free to use, modify, and share this project with proper attribution.
-
-🌟 About Me
-Hi there, I'm Fakhruddin Hatod 👋
-🎓 B.Tech Data Science Student at Sushila Devi Bansal College of Engineering
-
+🎓 **B.Tech Data Science Student** at *Sushila Devi Bansal College of Engineering*  
 💡 Passionate about turning complex data into actionable insights and building scalable data solutions.
 
-💻 About Me
-🔭 Current Focus: Advanced Machine Learning algorithms, predictive modeling, and SQL Analytics.
+---
 
-🛠️ Core Skills: Python, SQL, Data Analysis, Machine Learning, Data Visualization.
+### 💻 About Me
+- 🔭 **Current Focus:** Advanced Machine Learning algorithms, predictive modeling, and SQL Analytics.
+- 🛠️ **Core Skills:** Python, SQL, Data Analysis, Machine Learning, Data Visualization.
+- 📚 **Currently Learning:** Deep Learning, Model Deployment, and Big Data Technologies.
+- 🎯 **Goal:** Building impactful AI/Data Science projects and preparing for industry roles.
 
-📚 Currently Learning: Deep Learning, Model Deployment, and Big Data Technologies.
+---
 
-🎯 Goal: Building impactful AI/Data Science projects and preparing for industry roles.
+### 🛠️ Tech Stack & Tools
 
-🛠️ Tech Stack & Tools
-Languages: SQL, Python
+- **Languages:** SQL, Python
+- **Databases:** SQL Server / PostgreSQL
+- **Data Science & ML:** Pandas, NumPy, Scikit-Learn, Matplotlib, Seaborn
+- **Tools & Platforms:** VS Code, SSMS, Git, GitHub, Draw.io
 
-Databases: SQL Server 
+---
 
-Data Science & ML: Pandas, NumPy, Scikit-Learn, Matplotlib, Seaborn
-
-Tools & Platforms: SSMS, Git, GitHub, VS Code, Draw.io
-
-📬 Let's Connect!
-Email: fakhruddinhatod@gmail.com
+### 📬 Let's Connect!
+- **Email:** fakhruddinhatod@gmail.com
